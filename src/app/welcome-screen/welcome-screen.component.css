@@ -1,0 +1,242 @@
+.pg-body{
+  position: fixed;
+  right: 0;
+  left: 0;
+  top:0;
+  bottom: 0;
+  background: rgb(41, 116, 160);
+}
+.pg-loading-center-middle{
+  padding: 0;
+  vertical-align: middle;
+  margin: 0;
+  text-align: center;
+}
+.pg-loading-center-middle .pg-loading-logo-header{
+  font-family: Pacifico;
+  font-size: 4rem;
+  color: #fff;
+}
+
+
+.login-container,
+.register-container{
+  display: flex;
+  margin-top:20px;
+  flex-direction: column;
+}
+
+.login-container > *,
+.register-container > *{
+  width: 100%;
+}
+.pg-loading-html{
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+}
+
+.login-register-group{
+  background: #fff;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.loading-message{
+  height: 50px;
+  color: #fff;
+  font-size: 1.2rem;
+  transition: 2s all ease-in-out;
+  font-weight: 300;
+}
+
+.pg-signup-register-form {
+  width: 90%;
+  transition: 0.8s all ease;
+}
+.mat-form-field-underline{
+  height: 0.5px;
+}
+
+button.btn-success{
+  height: 3.5em;
+  color: #efefef;
+  border-radius: 2px;
+  border: 1px solid rgb(62, 81, 181);
+  background: rgb(62, 81, 181);
+}
+
+button.btn-success:focus{
+  outline: none;
+}
+
+button.btn-success[disabled]{
+  border:gray;
+  background: gray;
+}
+
+@media only screen and (min-width: 40.64em) {
+
+  .pg-signup-register-form {
+
+    width: auto;
+
+  }
+
+}
+
+
+/*Spinner styles*/
+@-webkit-keyframes lds-ellipsis3 {
+  0%, 25% {
+    left: 32px;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  50% {
+    left: 32px;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  75% {
+    left: 100px;
+  }
+  100% {
+    left: 168px;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0%, 25% {
+    left: 32px;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  50% {
+    left: 32px;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  75% {
+    left: 100px;
+  }
+  100% {
+    left: 168px;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes lds-ellipsis2 {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  25%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  25%, 100% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+}
+@-webkit-keyframes lds-ellipsis {
+  0% {
+    left: 32px;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  25% {
+    left: 32px;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    left: 100px;
+  }
+  75% {
+    left: 168px;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    left: 168px;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis {
+  0% {
+    left: 32px;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  25% {
+    left: 32px;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  50% {
+    left: 100px;
+  }
+  75% {
+    left: 168px;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  100% {
+    left: 168px;
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+}
+
+.lds-css{
+  margin-right: 14rem;
+}
+.lds-ellipsis {
+  position: relative;
+}
+.lds-ellipsis div > div {
+  width: 32px;
+  height: 32px;
+  background: #f00;
+  position: absolute;
+  top: 100px;
+  left: 32px;
+  -webkit-animation: lds-ellipsis 1.6s cubic-bezier(0, 0.5, 0.5, 1) infinite forwards;
+  animation: lds-ellipsis 1.6s cubic-bezier(0, 0.5, 0.5, 1) infinite forwards;
+}
+.lds-ellipsis div:nth-child(1) div {
+  -webkit-animation: lds-ellipsis2 1.6s cubic-bezier(0, 0.5, 0.5, 1) infinite forwards;
+  animation: lds-ellipsis2 1.6s cubic-bezier(0, 0.5, 0.5, 1) infinite forwards;
+  background: #ffffff;
+}
+.lds-ellipsis div:nth-child(2) div {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s;
+  background: #ffffff;
+}
+.lds-ellipsis div:nth-child(3) div {
+  -webkit-animation-delay: -0.4s;
+  animation-delay: -0.4s;
+  background: #ffffff;
+}
+.lds-ellipsis div:nth-child(4) div {
+  -webkit-animation-delay: 0s;
+  animation-delay: 0s;
+  background: #ffffff;
+}
+.lds-ellipsis div:nth-child(5) div {
+  -webkit-animation: lds-ellipsis3 1.6s cubic-bezier(0, 0.5, 0.5, 1) infinite forwards;
+  animation: lds-ellipsis3 1.6s cubic-bezier(0, 0.5, 0.5, 1) infinite forwards;
+  background: #ffffff;
+}

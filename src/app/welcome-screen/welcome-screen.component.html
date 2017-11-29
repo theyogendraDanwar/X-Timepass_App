@@ -1,0 +1,58 @@
+<div class="pg-body">
+  <div class="pg-loading-center-middle">
+    <h1 class="pg-loading-logo-header">{{app_name}}</h1>
+    <div class="pg-loading-html pg-loaded">
+      <p class="loading-message">{{singlequote}}</p>
+      <div class="lds-css" *ngIf="!checkConnection">
+        <div class="lds-ellipsis">
+          <div>
+            <div></div>
+          </div>
+          <div>
+            <div></div>
+          </div>
+          <div>
+            <div></div>
+          </div>
+          <div>
+            <div></div>
+          </div>
+          <div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+      <div class="pg-signup-register-form" *ngIf="checkConnection">
+        <mat-tab-group class="login-register-group">
+          <mat-tab label="Login">
+            <form (ngSubmit)="submitForm(username,password)">
+            <div class="login-container">
+              <mat-form-field>
+                <input matInput class="form-control" required [(ngModel)]="model.username" id="username" name="username" minlength="2" placeholder="Username" #username="ngModel">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput class="form-control" required [(ngModel)]="model.password" name="password" minlength="2" placeholder="Password" #password="ngModel">
+              </mat-form-field>
+              <button type="submit" [disabled]="!username.valid || !password.valid" class="btn btn-success">Submit</button>
+            </div>
+            </form>
+          </mat-tab>
+          <mat-tab label="Register">
+            <div class="register-container">
+              <mat-form-field>
+                <input matInput placeholder="Enter Username">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Enter Password">
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput placeholder="Enter Mobile No">
+              </mat-form-field>
+              <button type="submit" [disabled]="!username.valid || !password.valid" class="btn btn-success">Register</button>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+</div>

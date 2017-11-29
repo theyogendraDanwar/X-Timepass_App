@@ -1,1 +1,78 @@
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+
 /* You can add global styles to this file, and also import other style files */
+html,body{
+	margin: 0 auto;
+	height: 100%;
+	overflow:hidden;
+}
+
+*{
+	box-sizing: border-box;
+}
+
+app-root {
+  display: block;
+  height: 100%;
+}
+
+app-chatblock{
+	display: block;
+	height: 100%;
+}
+
+app-chatitem{
+	display: block;
+	height: 80px;
+}
+
+app-main-window{
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-list{
+	height: 100%;
+}
+
+.avatar img{
+	height: 100%;
+	border-radius: 50%;
+	background-color: #dfe5e7;
+}
+
+.avatar{
+	display: inline-block;
+	height: inherit;
+	position: relative;
+	overflow: hidden;
+}
+
+.chat-avatar{
+	height: 50px;
+	display: flex;
+	padding: 0 15px 0 13px;
+	align-items: center;
+}
+
+.pane-header{
+  background-color: #59b2d4;
+  order: 1;
+}
+
+app-welcome-screen{
+  display: block;
+  width: 100%;
+  height:100%;
+}
+
+add-user-dialog{
+  display: block;
+  width: 100%;
+  height:100%;
+}
+
+#mat-tab-label-0-0,#mat-tab-label-0-1{
+  background-color: #fff;
+}

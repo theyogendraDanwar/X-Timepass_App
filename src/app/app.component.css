@@ -1,0 +1,22 @@
+:host {
+    height: 100%
+}
+.chat-block{
+	width: 30%;
+	height: 100%
+}
+.main-window{
+	width: 70%;
+	border-left: 1px solid rgba(0,0,0,0.08);
+	height: 100%;
+}
+
+.app-drawer{
+	display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+	height: 100%;
+}
+
+

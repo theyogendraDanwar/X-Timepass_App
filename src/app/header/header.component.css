@@ -1,0 +1,27 @@
+:host{
+  display: block;
+  height: 72px;
+  width: 100%;
+}
+
+.pane-header{
+  height: 100%;
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.user-tools .add-person{
+  background: transparent;
+  border:none;
+  cursor: pointer;
+}
+.material-icons{
+  color: #f1f1f1;
+}
+
+button.add-person:focus{
+  outline: none;
+}

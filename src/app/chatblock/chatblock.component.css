@@ -1,0 +1,13 @@
+.chatlist-panel{
+	height: inherit;
+	overflow-y: auto;
+}
+
+.mat-list {
+	padding-top: 0;
+}
+
+.mat-list .chat-item{
+  border-bottom: 1px solid #eee;
+  box-sizing: content-box;
+}
