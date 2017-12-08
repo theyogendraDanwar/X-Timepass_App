@@ -9,34 +9,32 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
+import { MatStepperModule } from '@angular/material/stepper';
 
 
 // AngularFire
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 // End Of AngularFire
 
 // Components
 import { AppComponent } from './app.component';
+import { WelcomeScreenComponent } from './welcome-screen/welcome-screen.component';
 import { ChatblockComponent } from './chatblock/chatblock.component';
 import { ChatitemComponent } from './chatblock/chatitem/chatitem.component';
 import { MainWindowComponent } from './main-window/main-window.component';
 import { HeaderComponent, DialogAddClient } from './header/header.component';
+import { InfoScreenComponent } from './info-screen/info-screen.component';
 // End Of Components
 
 // Service Section
 import {GetlistService} from './services/getlist.service.service';
-import { WelcomeScreenComponent } from './welcome-screen/welcome-screen.component';
+import { AutheticationService } from './services/authetication.service';
 // End Of Service Section
 
-export const firebase = {
-  apiKey: "AIzaSyDhe3kU_ceNWwLaD5wsIiICaXF7rv_cWlw",
-  authDomain: "whatsapp-49a8d.firebaseapp.com",
-  databaseURL: "https://whatsapp-49a8d.firebaseio.com",
-  projectId: "whatsapp-49a8d",
-  storageBucket: "whatsapp-49a8d.appspot.com",
-  messagingSenderId: "953192950881"
-};
+// Environment Settings
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -46,7 +44,8 @@ export const firebase = {
     MainWindowComponent,
     HeaderComponent,
     DialogAddClient,
-    WelcomeScreenComponent
+    WelcomeScreenComponent,
+    InfoScreenComponent
   ],
   imports: [
     BrowserModule,
@@ -57,17 +56,20 @@ export const firebase = {
     MatListModule,
     MatInputModule,
     MatSidenavModule,
-    AngularFireModule.initializeApp(firebase),
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule,
     MatIconModule,
     MatDialogModule,
-    MatTabsModule
+    MatTabsModule,
+    AngularFireAuthModule,
+    MatStepperModule
   ],
   entryComponents: [
     DialogAddClient
   ],
   providers: [
-    GetlistService
+    GetlistService,
+    AutheticationService
   ],
   bootstrap: [AppComponent]
 })

@@ -76,3 +76,22 @@ add-user-dialog{
 #mat-tab-label-0-0,#mat-tab-label-0-1{
   background-color: #fff;
 }
+
+
+.profile-info-wrapper .mat-stepper-horizontal {
+  background: transparent;
+}
+
+.profile-info-wrapper .mat-step-label{
+  color: #fff;
+}
+
+@media only screen and (max-width: 40.64em) {
+  .profile-info-wrapper .mat-horizontal-stepper-header{
+    padding: 15px;
+  }
+}
+
+.profile-info-wrapper .mat-step-header .mat-step-label.mat-step-label-active{
+  color: #eeeeee;
+}

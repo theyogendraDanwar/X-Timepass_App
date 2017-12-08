@@ -25,31 +25,30 @@
       <div class="pg-signup-register-form" *ngIf="checkConnection">
         <mat-tab-group class="login-register-group">
           <mat-tab label="Login">
-            <form (ngSubmit)="submitForm(username,password)">
+            <form (ngSubmit)="submitForm(loginusername,loginpassword)">
             <div class="login-container">
               <mat-form-field>
-                <input matInput class="form-control" required [(ngModel)]="model.username" id="username" name="username" minlength="2" placeholder="Username" #username="ngModel">
+                <input matInput type="text" class="form-control" required [(ngModel)]="loginModel.username" id="loginModel.username" name="username" minlength="2" placeholder="Username" #loginusername="ngModel">
               </mat-form-field>
               <mat-form-field>
-                <input matInput class="form-control" required [(ngModel)]="model.password" name="password" minlength="2" placeholder="Password" #password="ngModel">
+                <input matInput type="password" class="form-control" required [(ngModel)]="loginModel.password" name="password" minlength="2" id="loginModel.password" placeholder="Password" #loginpassword="ngModel">
               </mat-form-field>
-              <button type="submit" [disabled]="!username.valid || !password.valid" class="btn btn-success">Submit</button>
+              <button type="submit" [disabled]="!loginusername.valid || !loginpassword.valid" class="btn btn-success">Submit</button>
             </div>
             </form>
           </mat-tab>
           <mat-tab label="Register">
+            <form (ngSubmit)="registerForm(registerusername, registerpassword)">
             <div class="register-container">
               <mat-form-field>
-                <input matInput placeholder="Enter Username">
+                <input matInput type="text" required placeholder="Enter Username" [(ngModel)]="registerModel.username" id="username" name="username" minlength="2" #registerusername="ngModel">
               </mat-form-field>
               <mat-form-field>
-                <input matInput placeholder="Enter Password">
+                <input matInput type="password" required minlength="4" placeholder="Enter Password" [(ngModel)]="registerModel.password" name="password" id="password" #registerpassword="ngModel">
               </mat-form-field>
-              <mat-form-field>
-                <input matInput placeholder="Enter Mobile No">
-              </mat-form-field>
-              <button type="submit" [disabled]="!username.valid || !password.valid" class="btn btn-success">Register</button>
+              <button type="submit" [disabled]="!registerusername.valid || !registerpassword.valid" class="btn btn-success">Register</button>
             </div>
+            </form>
           </mat-tab>
         </mat-tab-group>
       </div>

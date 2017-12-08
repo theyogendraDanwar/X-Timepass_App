@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { LoadingQuotes } from '../loading.quotes';
-import {Observable} from 'rxjs/Observable';
-import { GetlistService } from '../services/getlist.service.service';
+import { AutheticationService } from '../services/authetication.service';
 
 @Component({
   selector: 'app-welcome-screen',
@@ -12,12 +11,16 @@ export class WelcomeScreenComponent implements OnInit {
   private app_name: string;
   private loadingmessage: any;
   private singlequote: any;
-  private model: Object = {};
+  private registerModel: Object;
+  private loginModel: Object;
   private checkConnection: any;
+  @Output() userStates = new EventEmitter<any>();
 
-  constructor(private list: GetlistService) {
+  constructor(private list: AutheticationService) {
     this.loadingmessage = new LoadingQuotes();
     this.app_name = 'TimePass';
+    this.registerModel = {username: '', password: '', mobileno: ''};
+    this.loginModel = {username: '' , password: ''};
   }
 
   ngOnInit() {
@@ -27,16 +30,26 @@ export class WelcomeScreenComponent implements OnInit {
       this.singleMessage();
     }, 20000);
     if (this.list.initialConnection()) {
-      console.log(this.list.initialConnection());
       this.list.initialConnection().subscribe(item => {
-        console.log(item);
         this.checkConnection = item;
       });
     }
   }
 
   submitForm(usr, pass) {
-     console.log(usr.model, pass.model);
+    // this.list.loginUser(usr.model, pass.model);
+    console.log('ccfrfrcrf');
+    this.userStates.emit({
+      state: 'login',
+      value: 1
+    });
+  }
+  registerForm(usr, pass) {
+    this.list.registerUser(usr.model, pass.model);
+    this.userStates.emit({
+        state: 'register',
+        value: 1
+    });
   }
 
   singleMessage() {

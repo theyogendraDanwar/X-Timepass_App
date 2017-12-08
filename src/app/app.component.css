@@ -1,17 +1,17 @@
 :host {
     height: 100%
 }
-.chat-block{
+.chat-block {
 	width: 30%;
 	height: 100%
 }
-.main-window{
+.main-window {
 	width: 70%;
 	border-left: 1px solid rgba(0,0,0,0.08);
 	height: 100%;
 }
 
-.app-drawer{
+.app-drawer {
 	display: -webkit-flex;
   display: flex;
   -webkit-flex-direction: row;
@@ -19,4 +19,13 @@
 	height: 100%;
 }
 
+.time-pass-wrapper {
+  height: 100%;
+  display: block;
+  background: rgb(41, 116, 160);
+}
 
+.time-pass-wrapper .profile-info-wrapper {
+  width: 100%;
+  height: 100%;
+}
