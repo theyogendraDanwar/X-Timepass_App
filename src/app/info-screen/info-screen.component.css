@@ -14,6 +14,12 @@
 
 .profile-img-input{
   margin-top: 20px;
+  width: 100%;
+}
+
+.profile-img-input mat-form-field {
+  width: 100%;
+  color: white;
 }
 
 .show-progress {
@@ -54,6 +60,17 @@
   border-width: .5rem;
 }
 
+.phone-label {
+  color: white;
+  display: block;
+  text-align: center;
+}
+
+.field-verify-phone {
+  width: 100%;
+  color: white;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -61,4 +78,36 @@
   100% {
     transform: rotate(360deg);
   }
+}
+
+.step-to-verify-phone,
+.step-to-done {
+  position: relative;
+  width: 100%;
+  display: block;
+  margin: 30px auto;
+  padding: 0;
+  overflow: hidden;
+  border-width: 0;
+  outline: none;
+  border-radius: 2px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+  background-color: #2ecc71;
+  color: #ecf0f1;
+  transition: background-color .3s;
+}
+
+.step-to-verify-phone:hover .step-to-done, .step-to-verify-phone:focus , .step-to-done:focus {
+  background-color: #27ae60;
+}
+
+.step-to-verify-phone > *,
+.step-to-done > *{
+  position: relative;
+}
+
+.step-to-verify-phone span ,
+.step-to-done span{
+  display: block;
+  padding: 12px 24px;
 }

@@ -15,18 +15,17 @@
             </mat-form-field>
           </div>
         </div>
+        <button class="step-to-verify-phone" matStepperNext><span>Next</span></button>
       </form>
     </mat-step>
     <mat-step [stepControl]="secondFormGroup">
       <form [formGroup]="secondFormGroup">
         <ng-template matStepLabel>Verify Phone No</ng-template>
+        <label class="phone-label">Enter The Phone No</label>
         <mat-form-field>
-          <input matInput placeholder="Address" formControlName="secondCtrl" required>
+          <input matInput class="field-verify-phone" formControlName="secondCtrl" required>
         </mat-form-field>
-        <div>
-          <button mat-button matStepperPrevious>Back</button>
-          <button mat-button matStepperNext>Next</button>
-        </div>
+        <button class="step-to-done" matStepperNext><span>Send OTP</span></button>
       </form>
     </mat-step>
     <mat-step>

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { GetlistService } from '../services/getlist.service.service';
-declare var $: any;
 
 @Component({
   selector: 'app-info-screen',
@@ -32,12 +31,17 @@ export class InfoScreenComponent implements OnInit {
   onFileChange(event) {
     this.progress = 'show-progress';
     this.getList.uploadImage(event.target.files[0], '898huhjb88bbh9h98b989b9b9_839eu38ue3').subscribe(result => {
-      if ( result ) {
+      if (result) {
         this.imgSRC = result;
-        setTimeout(() => { this.progress = 'hide-progress'; }, 4000);
+        setTimeout(() => {
+          this.progress = 'hide-progress';
+        }, 4000);
       } else {
-        console.log( result );
+        console.log(result);
       }
     });
   }
+  sendLoginCode() {
+  }
+
 }

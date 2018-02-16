@@ -22,10 +22,14 @@
           </div>
         </div>
       </div>
-      <div class="pg-signup-register-form" *ngIf="checkConnection">
-        <mat-tab-group class="login-register-group">
+      <div class="pg-signup-register-form" *ngIf="checkConnection" [ngClass]="{
+      'process-login': process === 1,
+      'process-login-bounce': process === 2,
+      'process-explode': process === 3,
+      'default': process === 0 }">
+        <mat-tab-group class="login-register-group" *ngIf="!process">
           <mat-tab label="Login">
-            <form (ngSubmit)="submitForm(loginusername,loginpassword)">
+            <form (ngSubmit)="submitForm(loginusername,loginpassword, 1)">
             <div class="login-container">
               <mat-form-field>
                 <input matInput type="text" class="form-control" required [(ngModel)]="loginModel.username" id="loginModel.username" name="username" minlength="2" placeholder="Username" #loginusername="ngModel">
@@ -33,12 +37,18 @@
               <mat-form-field>
                 <input matInput type="password" class="form-control" required [(ngModel)]="loginModel.password" name="password" minlength="2" id="loginModel.password" placeholder="Password" #loginpassword="ngModel">
               </mat-form-field>
+              <div class="error-status" *ngIf="error_status === 401">
+                <p>The Username or Password you entered is incorrect</p>
+              </div>
+              <div class="error-status" *ngIf="error_status === 444">
+                <p>This Email Already Exist</p>
+              </div>
               <button type="submit" [disabled]="!loginusername.valid || !loginpassword.valid" class="btn btn-success">Submit</button>
             </div>
             </form>
           </mat-tab>
           <mat-tab label="Register">
-            <form (ngSubmit)="registerForm(registerusername, registerpassword)">
+            <form (ngSubmit)="registerForm(registerusername, registerpassword, 1)">
             <div class="register-container">
               <mat-form-field>
                 <input matInput type="text" required placeholder="Enter Username" [(ngModel)]="registerModel.username" id="username" name="username" minlength="2" #registerusername="ngModel">

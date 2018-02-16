@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database';
 import {Observable} from 'rxjs/Observable';
-import { AngularFireAuth } from 'angularfire2/auth';
+import {AngularFireAuth} from 'angularfire2/auth';
 
 @Injectable()
 export class AutheticationService {
@@ -10,10 +10,8 @@ export class AutheticationService {
   private result: any;
 
   constructor(private db: AngularFireDatabase, private auth: AngularFireAuth) {
-
     this.userList = db.list('/usrlist');
-    console.log(auth.authState);
-
+    this.result = null;
   }
 
   initialConnection(): Observable<any> {
@@ -30,23 +28,33 @@ export class AutheticationService {
     });
   }
 
-  loginUser(usr, pass) {
-    this.auth.auth.signInWithEmailAndPassword(usr, pass).then(userState => {
-      this.result = 1;
-      return this.result;
-    }).catch((error: any) => {
-      if (error === 'auth/wrong-password') {
-        return this.result = 'wrong password';
-      }
+  loginUser(usr, pass): Observable<any> {
+    return new Observable<any>(observe => {
+      this.auth.auth.signInWithEmailAndPassword(usr, pass).then(userState => {
+        console.log(userState);
+        observe.next(200);
+      }).catch((error: any) => {
+        if ( error.code === 'auth/wrong-password') {
+          observe.next (401);
+        }else {
+          console.log('Error', error);
+        }
+      });
     });
   }
 
-  registerUser(usr, pass) {
-    this.auth.auth.createUserWithEmailAndPassword(usr, pass).then(userState => {
-      this.result = 1;
-      return this.result;
-    }).catch((err: any) => {
-      this.result = err;
+  registerUser(usr, pass): Observable<any> {
+    return new Observable<any>(observe => {
+      this.auth.auth.createUserWithEmailAndPassword(usr, pass).then(userState => {
+        console.log(userState);
+        observe.next(200);
+      }).catch((error: any) => {
+        if (error.code === 'auth/email-already-in-use') {
+          observe.next(444);
+        }else {
+          console.log('Error', error);
+        }
+      });
     });
   }
 }

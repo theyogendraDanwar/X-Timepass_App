@@ -1,4 +1,11 @@
 import { Component } from '@angular/core';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +16,7 @@ export class AppComponent {
 
   private screen: number;
   constructor() {
-    this.screen = 1;
+    this.screen = 0;
   }
   ScreenHandle($event) {
     console.log($event.state);
